@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+  <!-- customized style -->
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    html, body, .container, .row {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .container {
+      max-width: 100%;
+    }
+    button {
+      font-size: 16px;
+    }
+
+    .form {
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    h1, form {
+      width: 100%;
+    }
+    h1 {
+      padding-top: 16px;
+      text-align: center;
+    }
+    form {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+    .middle {
+      text-align: center;
+    }
+    
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    <main class="row">
+      <section>
+        <h1>Bubbbbble</h1>
+        <form>
+          <div>
+            <label for="demo_name" class="middle">What is your name ?</label>
+            <input class="u-full-width middle" type="text" placeholder="皮卡丘" id="demo_name">
+          </div>
+
+          <button type="button" id="submit" class="middle">確認送出</button>
+
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $(function() {
+      $('#submit').on('click', function() {
+        
+        // 姓名
+        var name = $('#demo_name').val() || '未填寫';
+
+        // post
+        var data = {
+          'entry.1198548701': name
+        };
+        $.ajax({
+          type: 'POST',
+          url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSe473JOElQm--qfgm2w41eEBgZZKR-0JZCAFAVmrUTyN5Oxog/formResponse',
+          data: data,
+          contentType: 'application/json',
+          dataType: 'jsonp',
+          complete: function() {
+            alert('資料已送出！');
+          }
+        });
+        
+      });
+    });
+  </script>
+  
+</body>
+</html>
