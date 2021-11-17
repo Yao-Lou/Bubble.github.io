@@ -51,26 +51,38 @@
       min-height: 100px;
     }
     .middle {
+      margin-top: 100px;
       text-align: center;
     }
+
+    .alig {
+      text-align: center;
+      color: red;
+      background-color: black;
+      border: black;
+    }
     
+    .funkystyling {
+      background-image: url(QRcode_02.png);
+      background-color: #ec2027;
+      background-position: center;
+      background-size: contain;
+      background-attachment:fixed;
+      background-repeat: no-repeat;
+    }  
   </style>
 
 </head>
 <body>
 
-  <div class="container">
+  <div class="container funkystyling">
     <main class="row">
       <section>
-        <h1>Bubbbbble</h1>
         <form>
           <div>
-            <label for="demo_name" class="middle">What is your name ?</label>
-            <input class="u-full-width middle" type="text" placeholder="皮卡丘" id="demo_name">
+            <input class="middle" type="text" placeholder="皮卡丘" id="demo_name">
           </div>
-
-          <button type="button" id="submit" class="middle">確認送出</button>
-
+            <button type="button" id="submit" class="alig">確認送出</button>
         </form>
       </section>
     </main>
